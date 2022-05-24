@@ -4,7 +4,7 @@ import HomeCards from "../components/pages/HomeCards";
 const HomePage = () => {
     return (
         <Fragment>
-            <h2>Home</h2>
+            <h2>Home Page</h2>
             <HomeCards/>
         </Fragment>
     )

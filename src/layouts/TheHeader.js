@@ -20,7 +20,7 @@ const TheHeader = () => {
                             className={({isActive}) =>
                                 +isActive && classes['active']
                             }
-                            to="/dashboard">
+                            to="/dashboard/">
                             Dashboard layout
                         </NavLink>
                     </li>
