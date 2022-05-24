@@ -1,6 +1,10 @@
+import {Fragment} from "react";
+
 const UsersPage = () => {
     return (
-        <div>Users Page</div>
+        <Fragment>
+            <h2>Users Page</h2>
+        </Fragment>
     )
 }
 

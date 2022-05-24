@@ -1,8 +1,12 @@
+import {Fragment} from "react";
+
 const DashboardPage = () => {
     return (
-        <div>
-            Dashboard Page
-        </div>
+       <Fragment>
+           <h2>
+               Dashboard Page
+           </h2>
+       </Fragment>
     )
 }
 

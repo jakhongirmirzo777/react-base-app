@@ -1,6 +1,10 @@
+import {Fragment} from "react";
+
 const LoginPage = () => {
     return (
-        <div>Login Page</div>
+        <Fragment>
+            <h2>Login Page</h2>
+        </Fragment>
     )
 }
 

@@ -6,7 +6,7 @@ const DefaultLayout = () => {
         <div className={`${classes['App']} ${classes['App-header']}`}>
             <h1>Default Layout</h1>
             <Link to='/'>Home</Link>
-            <Link to='users/'>Login</Link>
+            <Link to='users/'>Users Page</Link>
             <Outlet/>
         </div>
     )
