@@ -1,7 +1,9 @@
-import {Routes, Route} from "react-router-dom";
+import {Routes, Route, Navigate} from "react-router-dom";
 import {Fragment, lazy, Suspense} from "react";
+import classes from "./assets/styles/App.module.css"
 
 const TheHeader = lazy(() => import('./layouts/TheHeader'))
+const NotFound = lazy(() => import('./layouts/NotFound'))
 const DefaultLayout = lazy(() => import('./layouts/DefaultLayout'))
 const DashboardLayout = lazy(() => import('./layouts/DashboardLayout'))
 const HomePage = lazy(() => import('./pages/HomePage'))
@@ -16,7 +18,7 @@ const App = () => {
         <Fragment>
             <Suspense fallback={fallbackLayout}>
                 <TheHeader/>
-                <main>
+                <main className={classes['main']}>
                     <Routes>
                         <Route path="/" element={<DefaultLayout/>}>
                             <Route index element={<HomePage/>}/>
@@ -26,6 +28,8 @@ const App = () => {
                             <Route index element={<DashboardPage/>}/>
                             <Route path='login' element={<LoginPage/>}/>
                         </Route>
+                        <Route path='/404' element={<NotFound/>}/>
+                        <Route path='*' element={<Navigate to='/404'/>}/>
                     </Routes>
                 </main>
             </Suspense>
