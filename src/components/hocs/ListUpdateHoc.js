@@ -1,4 +1,4 @@
-import {Component} from "react";
+import React, {Component} from "react";
 
 const DataSource1 = {
     source1: [
@@ -27,7 +27,7 @@ const DataSource2 = {
 }
 
 const ListUpdateHoc = (WrappedComponent, selectData) => {
-     class ListUpdateHoc extends Component {
+    class ListUpdateHocClass extends Component {
         constructor(props) {
             super(props);
             this.handleChange = this.handleChange.bind(this);
@@ -43,15 +43,22 @@ const ListUpdateHoc = (WrappedComponent, selectData) => {
         }
 
         render() {
+            const {forwardedRef, ...rest} = this.props;
             return (
-                <WrappedComponent handleChange={this.handleChange} data={this.state.data} {...this.props}/>
+                <WrappedComponent
+                    ref={forwardedRef}
+                    data={this.state.data}
+                    handleChange={this.handleChange}
+                    {...rest}/>
             )
         }
     }
 
-    const getDisplayName = (WrappedComponent) => WrappedComponent.displayName || WrappedComponent.name || 'Component';
-    ListUpdateHoc.displayName = `ListUpdateHoc(${getDisplayName(WrappedComponent)})`;
-    return ListUpdateHoc;
+    const forwardRefOfTheComponent = (props, ref) => <ListUpdateHocClass forwardedRef={ref} {...props} />
+    const name = WrappedComponent.displayName || WrappedComponent.name || 'Component';
+    forwardRefOfTheComponent.displayName = `ListUpdateHoc(${name})`;
+
+    return React.forwardRef(forwardRefOfTheComponent);
 }
 
 export default ListUpdateHoc

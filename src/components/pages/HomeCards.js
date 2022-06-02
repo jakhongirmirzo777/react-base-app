@@ -2,6 +2,7 @@ import AppButton from "../ui/AppButton";
 import ListUpdateHoc from "../hocs/ListUpdateHoc";
 import CommentList from "./CommentList";
 import ReviewList from "./ReviewList";
+import React, {useRef} from "react";
 
 const CommentListComponent = ListUpdateHoc(
     CommentList,
@@ -14,6 +15,11 @@ const ReviewListComponent = ListUpdateHoc(
 )
 
 const HomeCards = () => {
+    const commentRef = useRef(null)
+    const logCommentRef = () => {
+        console.log(commentRef)
+    }
+
     return (
         <>
             <div>
@@ -21,7 +27,10 @@ const HomeCards = () => {
                 <AppButton isLarge>111</AppButton>
             </div>
             <div>
-                <CommentListComponent greeting='Hiiiiii'/>
+                <CommentListComponent
+                    ref={commentRef}
+                    greeting='Hiiiiii'
+                    onClick={logCommentRef}/>
                 <ReviewListComponent greeting='Helloooo'/>
             </div>
         </>
