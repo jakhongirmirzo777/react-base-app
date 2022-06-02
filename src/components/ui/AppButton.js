@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types'
-const AppButton = ({children, isLarge}) => {
+
+const AppButton = ({children, onClick}) => {
     return (
-        <button>{children}</button>
+        <button onClick={onClick}>{children}</button>
     )
 }
 
