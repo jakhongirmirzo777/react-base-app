@@ -21,8 +21,8 @@ const HomeCards = () => {
                 <AppButton isLarge>111</AppButton>
             </div>
             <div>
-                <CommentListComponent/>
-                <ReviewListComponent/>
+                <CommentListComponent greeting='Hiiiiii'/>
+                <ReviewListComponent greeting='Helloooo'/>
             </div>
         </>
     )
